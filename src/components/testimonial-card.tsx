@@ -2,16 +2,29 @@ import { Box, Flex, Text, Em } from "@chakra-ui/react";
 import Image from "next/image";
 import maleToyFace from "@/assets/images/toy-face-male.png";
 
-function TestimonialCard() {
+interface TestimonialCardProps {
+  quote: string;
+  author: string;
+  role?: string;
+}
+
+function TestimonialCard({ quote, author, role }: TestimonialCardProps) {
   return (
-    <Box pt={[0, null, null, "110px"]}>
+    <Box
+      pt={[0, null, null, "110px"]}
+      h="100%"
+      display="flex"
+      flexDirection="column"
+    >
       <Box
         pos="relative"
         w={["100%", null, null, "450px"]}
-        aspectRatio={["none", null, null, 1.2]}
-        minH={["350px", null, null, "none"]}
+        h="100%"
         bg="#282828"
         p={[8, null, null, 16]}
+        display="flex"
+        flexDirection="column"
+        justifyContent="space-between"
       >
         <Flex
           justify="center"
@@ -29,16 +42,25 @@ function TestimonialCard() {
             <Image src={maleToyFace} alt="" fill />
           </Box>
         </Flex>
-        <Text textAlign="right" fontSize={["6xl", null, null, "8xl"]}>
-          <Em>&quot;</Em>
-        </Text>
-        <Text mb={5}>
-          Lorem ipsum dolor sit amet consectetur. Iaculis scelerisque diam quam
-          id. Quam libero mattis gravida proin pharetra in.
-        </Text>
-        <Text textAlign="right" fontSize="xs">
-          James Oduocha
-        </Text>
+        <Box flex="1" display="flex" flexDirection="column" justifyContent="space-between">
+          <Box>
+            <Text textAlign="right" fontSize={["6xl", null, null, "8xl"]} mb={4}>
+              <Em>&quot;</Em>
+            </Text>
+            <Text mb={6} lineHeight="1.6" fontSize={["sm", null, null, "md"]}>
+              {quote}
+            </Text>
+          </Box>
+          <Text textAlign="right" fontSize="xs" color="#999" mt="auto">
+            {author}
+            {role && (
+              <>
+                <br />
+                {role}
+              </>
+            )}
+          </Text>
+        </Box>
       </Box>
     </Box>
   );

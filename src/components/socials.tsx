@@ -7,10 +7,18 @@ import InstagramIcon from "./icons/instagram";
 function Socials() {
   return (
     <HStack fontSize="2xl" gap={6}>
-      <FacebookIcon />
-      <LinkedInIcon />
-      <YoutubeIcon />
-      <InstagramIcon />
+      <a href="#">
+        <FacebookIcon />
+      </a>
+      <a href="https://www.linkedin.com/company/0xenginelabs/" target="_blank" rel="noopener noreferrer">
+        <LinkedInIcon />
+      </a>
+      <a href="#">
+        <YoutubeIcon />
+      </a>
+      <a href="#">
+        <InstagramIcon />
+      </a>
     </HStack>
   );
 }
