@@ -1,24 +1,24 @@
 import { HStack } from "@chakra-ui/react";
 import LinkedInIcon from "./icons/linked-in";
-import FacebookIcon from "./icons/facebook";
-import YoutubeIcon from "./icons/youtube";
-import InstagramIcon from "./icons/instagram";
+// import FacebookIcon from "./icons/facebook";
+// import YoutubeIcon from "./icons/youtube";
+// import InstagramIcon from "./icons/instagram";
 
 function Socials() {
   return (
     <HStack fontSize="2xl" gap={6}>
-      <a href="#">
+      {/* <a href="#">
         <FacebookIcon />
-      </a>
+      </a> */}
       <a href="https://www.linkedin.com/company/0xenginelabs/" target="_blank" rel="noopener noreferrer">
         <LinkedInIcon />
       </a>
-      <a href="#">
+      {/* <a href="#">
         <YoutubeIcon />
       </a>
       <a href="#">
         <InstagramIcon />
-      </a>
+      </a> */}
     </HStack>
   );
 }
