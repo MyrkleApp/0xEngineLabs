@@ -1,14 +1,15 @@
 import { Box, Flex, Text, Em } from "@chakra-ui/react";
 import Image from "next/image";
-import maleToyFace from "@/assets/images/toy-face-male.png";
+import { StaticImageData } from "next/image";
 
 interface TestimonialCardProps {
   quote: string;
   author: string;
   role?: string;
+  image: StaticImageData;
 }
 
-function TestimonialCard({ quote, author, role }: TestimonialCardProps) {
+function TestimonialCard({ quote, author, role, image }: TestimonialCardProps) {
   return (
     <Box
       pt={[0, null, null, "110px"]}
@@ -39,7 +40,7 @@ function TestimonialCard({ quote, author, role }: TestimonialCardProps) {
           boxShadow="10px 10px 10px rgba(41, 39, 39, 0.81)"
         >
           <Box w={["50%"]} aspectRatio={0.7} pos="relative">
-            <Image src={maleToyFace} alt="" fill />
+            <Image src={image} alt={author} fill />
           </Box>
         </Flex>
         <Box flex="1" display="flex" flexDirection="column" justifyContent="space-between">
