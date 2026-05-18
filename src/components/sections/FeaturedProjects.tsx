@@ -12,7 +12,7 @@ export const featuredProjects = [
     description:
       "Rebuilt a legacy payment processing service to handle 40,000 concurrent requests. Reduced p99 latency from 3.2s to 180ms under peak load.",
     tags: ["Go", "PostgreSQL", "Redis", "gRPC"],
-    accent: "#FE5F55",
+    accent: "#02FFE4",
     size: "large",
   },
   {
@@ -22,7 +22,7 @@ export const featuredProjects = [
     description:
       "Designed and shipped a multi-channel notification pipeline handling 2M+ events/day with guaranteed delivery and structured failure handling.",
     tags: ["Kafka", "Node.js", "MongoDB"],
-    accent: "#F0B67F",
+    accent: "#008F82",
     size: "small",
   },
   {
@@ -32,7 +32,7 @@ export const featuredProjects = [
     description:
       "Migrated a monolithic e-commerce backend into 7 independently deployable services. Zero downtime migration, zero regression events post-launch.",
     tags: ["K8s", "Terraform", "AWS", "Python"],
-    accent: "lime",
+    accent: "#CCFFF8",
     size: "small",
   },
 ];
@@ -51,7 +51,7 @@ const cardVariants = {
 
 export function FeaturedProjects() {
   return (
-    <section className="bg-black py-24 md:py-32 px-4 md:px-6 w-full">
+    <section className="bg-background py-24 md:py-32 px-4 md:px-6 w-full">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
@@ -59,13 +59,13 @@ export function FeaturedProjects() {
             <span className="text-primary text-[10px] sm:text-xs uppercase tracking-widest font-medium block mb-4">
               Work
             </span>
-            <h2 className="text-lime text-2xl sm:text-3xl md:text-4xl font-medium">
+            <h2 className="text-ink text-2xl sm:text-3xl md:text-4xl font-medium">
               Systems we&apos;ve shipped.
             </h2>
           </div>
           <Link
             href="/projects"
-            className="group inline-flex items-center gap-2 text-lime text-sm font-medium hover:text-white transition-colors flex-shrink-0"
+            className="group inline-flex items-center gap-2 text-ink text-sm font-medium hover:text-primary transition-colors flex-shrink-0"
           >
             View All Projects
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -82,7 +82,7 @@ export function FeaturedProjects() {
             viewport={{ once: true, margin: "-80px" }}
             custom={0}
             whileHover={{ y: -4 }}
-            className="md:col-span-5 relative bg-[#101010] rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[360px] md:min-h-[440px] overflow-hidden group cursor-pointer"
+            className="md:col-span-5 relative bg-surface border border-line rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[360px] md:min-h-[440px] overflow-hidden group cursor-pointer shadow-[0_18px_60px_rgba(2,255,228,0.14)]"
           >
             {/* Accent glow */}
             <div
@@ -103,10 +103,10 @@ export function FeaturedProjects() {
               <span className="text-primary text-[10px] uppercase tracking-widest font-medium block mb-6">
                 {featuredProjects[0].number} — PROJECT
               </span>
-              <h3 className="text-lime text-xl sm:text-2xl md:text-3xl font-medium mb-4 leading-tight">
+              <h3 className="text-ink text-xl sm:text-2xl md:text-3xl font-medium mb-4 leading-tight">
                 {featuredProjects[0].title}
               </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-muted text-sm leading-relaxed">
                 {featuredProjects[0].description}
               </p>
             </div>
@@ -115,7 +115,7 @@ export function FeaturedProjects() {
               {featuredProjects[0].tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[10px] font-mono border border-white/10 rounded-full px-3 py-1 text-gray-400"
+                  className="text-[10px] font-mono border border-line rounded-full px-3 py-1 text-muted bg-surface-tinted"
                 >
                   {tag}
                 </span>
@@ -140,7 +140,7 @@ export function FeaturedProjects() {
                 viewport={{ once: true, margin: "-80px" }}
                 custom={i + 1}
                 whileHover={{ y: -4 }}
-                className="relative bg-[#101010] rounded-2xl p-7 flex flex-col sm:flex-row gap-6 min-h-[200px] overflow-hidden group cursor-pointer flex-1"
+                className="relative bg-surface border border-line rounded-2xl p-7 flex flex-col sm:flex-row gap-6 min-h-[200px] overflow-hidden group cursor-pointer flex-1 shadow-[0_18px_60px_rgba(2,255,228,0.12)]"
               >
                 {/* Accent glow */}
                 <div
@@ -154,10 +154,10 @@ export function FeaturedProjects() {
                   <span className="text-primary text-[10px] uppercase tracking-widest font-medium block mb-3">
                     {project.number} — PROJECT
                   </span>
-                  <h3 className="text-lime text-lg sm:text-xl font-medium mb-3 leading-tight">
+                  <h3 className="text-ink text-lg sm:text-xl font-medium mb-3 leading-tight">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-muted text-sm leading-relaxed">
                     {project.description}
                   </p>
                 </div>
@@ -166,7 +166,7 @@ export function FeaturedProjects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[10px] font-mono border border-white/10 rounded-full px-3 py-1 text-gray-500"
+                      className="text-[10px] font-mono border border-line rounded-full px-3 py-1 text-muted bg-surface-tinted"
                     >
                       {tag}
                     </span>
@@ -176,7 +176,7 @@ export function FeaturedProjects() {
                 {/* Bottom accent bar */}
                 <div
                   className="absolute bottom-0 left-0 right-0 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-                  style={{ backgroundColor: project.accent === "lime" ? "#C7EFCF" : project.accent }}
+                  style={{ backgroundColor: project.accent }}
                 />
               </motion.div>
             ))}
@@ -187,7 +187,7 @@ export function FeaturedProjects() {
         <div className="mt-10 flex justify-center">
           <Link
             href="/projects"
-            className="group flex items-center gap-3 border border-white/10 rounded-full px-8 py-3 text-gray-400 text-sm font-medium transition-all hover:border-lime/30 hover:text-lime"
+            className="group flex items-center gap-3 border border-line rounded-full px-8 py-3 text-muted text-sm font-medium transition-all hover:border-primary hover:text-primary bg-white/50"
           >
             View all projects
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

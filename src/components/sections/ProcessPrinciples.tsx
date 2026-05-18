@@ -21,15 +21,15 @@ const steps = [
 ];
 
 const principlesList = [
-  { text: "Performance over ", accent: "abstraction.", accentColor: "#F0B67F" },
-  { text: "Systems must survive load, not ", accent: "demos.", accentColor: "#FE5F55" },
-  { text: "Every layer is ", accent: "intentional.", accentColor: "lime" },
-  { text: "Complexity is controlled, not ", accent: "accumulated.", accentColor: "#F0B67F" },
+  { text: "Performance over ", accent: "abstraction.", accentColor: "#02FFE4" },
+  { text: "Systems must survive load, not ", accent: "demos.", accentColor: "#008F82" },
+  { text: "Every layer is ", accent: "intentional.", accentColor: "#CCFFF8" },
+  { text: "Complexity is controlled, not ", accent: "accumulated.", accentColor: "#02FFE4" },
 ];
 
 export function Process() {
   return (
-    <section id="process" className="bg-black py-24 md:py-32 px-4 md:px-6 w-full">
+    <section id="process" className="bg-background py-24 md:py-32 px-4 md:px-6 w-full">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-16">
@@ -37,15 +37,15 @@ export function Process() {
             Execution Model
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium">
-            <span className="text-lime">How We </span>
-            <span className="text-lime">Work.</span>
+            <span className="text-ink">How We </span>
+            <span className="text-primary">Work.</span>
           </h2>
         </div>
 
         {/* Three-column steps */}
         <div
           className="grid grid-cols-1 md:grid-cols-3"
-          style={{ borderTop: "0.5px solid #B8B5AE" }}
+          style={{ borderTop: "0.5px solid #C8E2DD" }}
         >
           {steps.map((step, i) => (
             <motion.div
@@ -56,14 +56,14 @@ export function Process() {
               transition={{ duration: 0.6, delay: i * 0.12 }}
               className="py-10 pr-8 flex flex-col gap-4"
               style={{
-                borderRight: i < steps.length - 1 ? "0.5px solid #B8B5AE" : "none",
+                borderRight: i < steps.length - 1 ? "0.5px solid #C8E2DD" : "none",
                 paddingLeft: i === 0 ? "0" : "2rem",
               }}
             >
-              <h3 className="text-lime text-xl sm:text-2xl md:text-3xl font-medium">
+              <h3 className="text-ink text-xl sm:text-2xl md:text-3xl font-medium">
                 {step.title}
               </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{step.body}</p>
+              <p className="text-muted text-base leading-relaxed">{step.body}</p>
             </motion.div>
           ))}
         </div>
@@ -74,14 +74,14 @@ export function Process() {
 
 export function Principles() {
   return (
-    <section id="principles" className="bg-black py-24 md:py-32 px-4 md:px-6 w-full">
+    <section id="principles" className="bg-background py-24 md:py-32 px-4 md:px-6 w-full">
       <div className="max-w-7xl mx-auto">
         <span className="text-primary text-[10px] sm:text-xs uppercase tracking-widest font-medium block mb-12">
           Principles
         </span>
 
         {/* Stacked list with hairline dividers */}
-        <div style={{ borderTop: "0.5px solid #B8B5AE" }}>
+        <div style={{ borderTop: "0.5px solid #C8E2DD" }}>
           {principlesList.map((item, i) => (
             <motion.div
               key={i}
@@ -90,10 +90,10 @@ export function Principles() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group flex items-center justify-between py-6 md:py-8 cursor-default transition-colors duration-300 hover:text-primary"
-              style={{ borderBottom: "0.5px solid #B8B5AE" }}
+              style={{ borderBottom: "0.5px solid #C8E2DD" }}
             >
               <p
-                className="text-[#1A1A18] group-hover:text-primary transition-colors duration-300"
+                className="text-ink group-hover:text-primary transition-colors duration-300"
                 style={{ fontSize: "clamp(22px, 3vw, 40px)", fontWeight: 700, lineHeight: 1.15 }}
               >
                 {item.text}

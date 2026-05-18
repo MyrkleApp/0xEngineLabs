@@ -60,21 +60,21 @@ function DomainRow({ domain, index }: { domain: (typeof domains)[0]; index: numb
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.55, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
       className="group relative grid grid-cols-12 gap-x-8 gap-y-4 py-10 md:py-12 cursor-default transition-colors duration-300"
-      style={{ borderTop: "0.5px solid rgba(255,255,255,0.08)" }}
+      style={{ borderTop: "0.5px solid #C8E2DD" }}
     >
       {/* Hover background wash */}
       <motion.div
         animate={{ opacity: hovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
         className="absolute inset-0 rounded-xl pointer-events-none"
-        style={{ background: "rgba(199,239,207,0.02)" }}
+        style={{ background: "rgba(2,255,228,0.08)" }}
       />
 
       {/* Number */}
       <div className="col-span-12 sm:col-span-1 flex items-start pt-1">
         <span
           className="font-mono text-[10px] uppercase tracking-widest transition-colors duration-300"
-          style={{ color: hovered ? "lime" : "rgba(255,255,255,0.2)" }}
+          style={{ color: hovered ? "#008F82" : "rgba(8,23,22,0.35)" }}
         >
           {domain.number}
         </span>
@@ -86,12 +86,12 @@ function DomainRow({ domain, index }: { domain: (typeof domains)[0]; index: numb
           className="font-medium leading-tight mb-3 transition-colors duration-300"
           style={{
             fontSize: "clamp(18px, 2vw, 26px)",
-            color: hovered ? "#fff" : "lime",
+            color: hovered ? "#008F82" : "#081716",
           }}
         >
           {domain.title}
         </h3>
-        <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
+        <p className="text-muted text-sm leading-relaxed max-w-xs">
           {domain.body}
         </p>
       </div>
@@ -107,11 +107,11 @@ function DomainRow({ domain, index }: { domain: (typeof domains)[0]; index: numb
           >
             <span
               className="flex-shrink-0 w-1 h-1 rounded-full transition-colors duration-300"
-              style={{ backgroundColor: hovered ? "lime" : "rgba(255,255,255,0.15)" }}
+              style={{ backgroundColor: hovered ? "#02FFE4" : "rgba(8,23,22,0.2)" }}
             />
             <span
               className="text-sm leading-snug transition-colors duration-300"
-              style={{ color: hovered ? "rgba(255,255,255,0.7)" : "rgba(255,255,255,0.3)" }}
+              style={{ color: hovered ? "#081716" : "rgba(8,23,22,0.58)" }}
             >
               {item}
             </span>
@@ -124,7 +124,7 @@ function DomainRow({ domain, index }: { domain: (typeof domains)[0]; index: numb
         <motion.span
           animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -6 }}
           transition={{ duration: 0.25 }}
-          className="text-lime text-sm"
+          className="text-primary text-sm"
         >
           ↗
         </motion.span>
@@ -135,7 +135,7 @@ function DomainRow({ domain, index }: { domain: (typeof domains)[0]; index: numb
 
 export function Capabilities() {
   return (
-    <section id="capabilities" className="bg-black py-24 md:py-32 px-4 md:px-6 w-full">
+    <section id="capabilities" className="bg-background py-24 md:py-32 px-4 md:px-6 w-full">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
@@ -145,14 +145,14 @@ export function Capabilities() {
           </span>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 max-w-4xl">
             <div>
-              <h2 className="text-lime font-medium leading-tight" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+              <h2 className="text-ink font-medium leading-tight" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
                 Four domains.
               </h2>
-              <h2 className="text-gray-500 font-medium leading-tight" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
+              <h2 className="text-muted font-medium leading-tight" style={{ fontSize: "clamp(28px, 4vw, 52px)" }}>
                 No overlap. No generalism.
               </h2>
             </div>
-            <p className="text-gray-600 font-mono text-xs sm:text-sm max-w-xs flex-shrink-0 pb-1">
+            <p className="text-muted font-mono text-xs sm:text-sm max-w-xs flex-shrink-0 pb-1">
               Every engagement lives inside one of these.<br />We do not stretch scope.
             </p>
           </div>
@@ -164,7 +164,7 @@ export function Capabilities() {
             <DomainRow key={domain.number} domain={domain} index={i} />
           ))}
           {/* Bottom hairline */}
-          <div style={{ borderTop: "0.5px solid rgba(255,255,255,0.08)" }} />
+          <div style={{ borderTop: "0.5px solid #C8E2DD" }} />
         </div>
 
       </div>

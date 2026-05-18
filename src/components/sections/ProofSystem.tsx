@@ -41,8 +41,8 @@ const cardVariants = {
 
 export function ProofSystem() {
   return (
-    <section id="proof" className="relative bg-black py-24 md:py-32 px-4 md:px-6 w-full overflow-hidden">
-      <div className="bg-noise absolute inset-0 opacity-[0.15] pointer-events-none" />
+    <section id="proof" className="relative bg-[#E8F7F3] py-24 md:py-32 px-4 md:px-6 w-full overflow-hidden">
+      <div className="bg-noise absolute inset-0 opacity-[0.08] mix-blend-multiply pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
@@ -53,12 +53,12 @@ export function ProofSystem() {
           <div className="flex flex-col items-start gap-0 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-normal">
             <WordsPullUpMultiStyle
               segments={[
-                { text: "Built systems.", className: "text-lime" },
-                { text: " Verified under load.", className: "text-lime" },
+                { text: "Built systems.", className: "text-ink" },
+                { text: " Verified under load.", className: "text-primary" },
               ]}
             />
             <WordsPullUpMultiStyle
-              segments={[{ text: "No post-deployment failures. No theoretical benchmarks.", className: "text-gray-500 text-sm sm:text-base md:text-lg font-mono mt-2" }]}
+              segments={[{ text: "No post-deployment failures. No theoretical benchmarks.", className: "text-muted text-sm sm:text-base md:text-lg font-mono mt-2" }]}
             />
           </div>
         </div>
@@ -80,12 +80,12 @@ export function ProofSystem() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             custom={0}
-            className="relative bg-[#1A1A18] rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[420px] overflow-hidden"
+            className="relative bg-surface border border-line rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[420px] overflow-hidden shadow-[0_24px_80px_rgba(2,255,228,0.14)]"
           >
             {/* 0x watermark */}
             <span
               className="absolute bottom-0 right-2 text-[140px] font-bold leading-none select-none pointer-events-none"
-              style={{ color: "#fff", opacity: 0.03 }}
+              style={{ color: "#081716", opacity: 0.04 }}
             >
               0x
             </span>
@@ -93,10 +93,10 @@ export function ProofSystem() {
               <span className="text-primary text-[10px] uppercase tracking-widest font-medium block mb-6">
                 01 — SYSTEM
               </span>
-              <h3 className="text-lime text-2xl sm:text-3xl font-medium mb-4">
+              <h3 className="text-ink text-2xl sm:text-3xl font-medium mb-4">
                 Distributed System Flow
               </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-muted text-sm leading-relaxed">
                 Service-to-service communication structured for reliability and fault tolerance under concurrent load. Engineered for predictable behavior in production, not controlled environments.
               </p>
             </div>
@@ -115,23 +115,23 @@ export function ProofSystem() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
                 custom={i + 1}
-                className="bg-[#F2F0EC] rounded-2xl p-7 flex flex-col"
+                className="bg-surface border border-line rounded-2xl p-7 flex flex-col"
               >
-                <span className="text-[#1A1A18]/40 text-[10px] uppercase tracking-widest font-medium block mb-4">
+                <span className="text-ink/40 text-[10px] uppercase tracking-widest font-medium block mb-4">
                   {card.label}
                 </span>
-                <h3 className="text-[#1A1A18] text-lg font-medium mb-5">{card.title}</h3>
+                <h3 className="text-ink text-lg font-medium mb-5">{card.title}</h3>
                 <ul className="flex flex-col gap-2.5 mb-5">
                   {card.checklist.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <Check className="text-[#1A1A18]/50 w-4 h-4 mt-0.5 flex-shrink-0" />
-                      <span className="text-[#1A1A18]/60 text-xs leading-relaxed">{item}</span>
+                      <Check className="text-ink/50 w-4 h-4 mt-0.5 flex-shrink-0" />
+                      <span className="text-ink/60 text-xs leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
                 <a
                   href="#"
-                  className="group inline-flex items-center gap-2 text-[#1A1A18] font-mono text-[10px] mt-auto hover:text-primary transition-colors"
+                  className="group inline-flex items-center gap-2 text-ink font-mono text-[10px] mt-auto hover:text-primary transition-colors"
                 >
                   View Details
                   <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1 -rotate-45" />
@@ -148,14 +148,14 @@ export function ProofSystem() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           custom={3}
-          className="bg-[#1A1A18] rounded-2xl p-8 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="bg-surface border border-line rounded-2xl p-8 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-8 shadow-[0_24px_80px_rgba(2,255,228,0.14)]"
         >
           <div>
             <span className="text-primary text-[10px] uppercase tracking-widest font-medium block mb-4">
               04 — CASE
             </span>
-            <h3 className="text-lime text-xl sm:text-2xl font-medium mb-3">Automation Pipeline</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <h3 className="text-ink text-xl sm:text-2xl font-medium mb-3">Automation Pipeline</h3>
+            <p className="text-muted text-sm leading-relaxed">
               Replaced manual operational workflows with structured execution pipelines. Reduced overhead. Introduced monitoring and failure alerting. Systems now self-report before humans notice.
             </p>
           </div>
@@ -169,11 +169,11 @@ export function ProofSystem() {
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <Check className="text-primary w-4 h-4 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-400 text-xs leading-relaxed">{item}</span>
+                  <span className="text-muted text-xs leading-relaxed">{item}</span>
                 </li>
               ))}
             </ul>
-            <p className="text-gray-600 font-mono text-[9px] mt-6">Metrics available on request.</p>
+            <p className="text-muted font-mono text-[9px] mt-6">Metrics available on request.</p>
           </div>
         </motion.div>
       </div>

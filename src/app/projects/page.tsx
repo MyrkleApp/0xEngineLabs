@@ -14,7 +14,7 @@ const allProjects = [
     description:
       "Architected a streaming data pipeline capable of processing 500K events/hour. Custom aggregation layer reduced reporting latency from 15 minutes to under 3 seconds.",
     tags: ["Apache Kafka", "Flink", "ClickHouse", "Go"],
-    accent: "#00CFFF",
+    accent: "#02FFE4",
     size: "small",
   },
   {
@@ -24,7 +24,7 @@ const allProjects = [
     description:
       "Built the core backend for a B2B SaaS product — full data isolation, role-based access, usage-based billing hooks, and a structured audit log layer.",
     tags: ["Node.js", "PostgreSQL", "Stripe", "Docker"],
-    accent: "#A78BFA",
+    accent: "#008F82",
     size: "small",
   },
   {
@@ -34,7 +34,7 @@ const allProjects = [
     description:
       "Automated a manual 4-step dispatch workflow into a single-trigger pipeline. Reduced average dispatch time from 22 minutes to under 90 seconds.",
     tags: ["Python", "Celery", "Redis", "PostgreSQL"],
-    accent: "#F0B67F",
+    accent: "#CCFFF8",
     size: "small",
   },
 ];
@@ -53,17 +53,17 @@ const cardVariants = {
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-black px-4 md:px-6 pb-24">
+    <main className="min-h-screen bg-background px-4 md:px-6 pb-24">
       {/* Top nav */}
-      <nav className="sticky top-0 z-10 flex items-center justify-between py-4 bg-black/80 backdrop-blur-md border-b border-white/5">
+      <nav className="sticky top-0 z-10 flex items-center justify-between py-4 bg-background/85 backdrop-blur-md border-b border-line">
         <Link
           href="/"
-          className="group flex items-center gap-2 text-gray-400 text-sm hover:text-lime transition-colors"
+          className="group flex items-center gap-2 text-muted text-sm hover:text-primary transition-colors"
         >
           <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
           Back to Home
         </Link>
-        <span className="text-lime font-mono text-[10px] uppercase tracking-widest">
+        <span className="text-ink font-mono text-[10px] uppercase tracking-widest">
           0x Engine Labs
         </span>
         <Link
@@ -71,8 +71,8 @@ export default function ProjectsPage() {
           className="group flex items-center gap-1.5 bg-primary rounded-full pl-4 pr-1.5 py-1 text-black font-medium text-xs"
         >
           Contact Us
-          <div className="bg-black rounded-full w-5 h-5 flex items-center justify-center">
-            <ArrowRight className="text-lime w-3 h-3" />
+          <div className="bg-ink rounded-full w-5 h-5 flex items-center justify-center">
+            <ArrowRight className="text-white w-3 h-3" />
           </div>
         </Link>
       </nav>
@@ -89,14 +89,14 @@ export default function ProjectsPage() {
             All Work
           </span>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-            <h1 className="text-lime text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-tight max-w-2xl">
+            <h1 className="text-ink text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-tight max-w-2xl">
               Systems built, shipped, and still running.
             </h1>
-            <div className="flex-shrink-0 border border-lime/20 rounded-full px-4 py-2 text-lime font-mono text-sm">
+            <div className="flex-shrink-0 border border-line rounded-full px-4 py-2 text-ink font-mono text-sm bg-white/60">
               {allProjects.length} Projects
             </div>
           </div>
-          <p className="text-gray-500 text-sm leading-relaxed mt-6 max-w-xl">
+          <p className="text-muted text-sm leading-relaxed mt-6 max-w-xl">
             Every project below was built under real constraints, verified under load, and handed over running. No theoretical benchmarks.
           </p>
         </motion.div>
@@ -112,19 +112,19 @@ export default function ProjectsPage() {
               viewport={{ once: true, margin: "-60px" }}
               custom={i}
               whileHover={{ y: -4 }}
-              className="relative bg-[#101010] rounded-2xl p-7 flex flex-col min-h-[320px] overflow-hidden group cursor-pointer"
+              className="relative bg-surface border border-line rounded-2xl p-7 flex flex-col min-h-[320px] overflow-hidden group cursor-pointer shadow-[0_18px_60px_rgba(2,255,228,0.12)]"
             >
               {/* Accent glow */}
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-[0.06] transition-opacity duration-500"
                 style={{
-                  background: `radial-gradient(ellipse at 20% 20%, ${project.accent === "lime" ? "#C7EFCF" : project.accent}, transparent 60%)`,
+                  background: `radial-gradient(ellipse at 20% 20%, ${project.accent}, transparent 60%)`,
                 }}
               />
               {/* Watermark */}
               <span
                 className="absolute bottom-2 right-4 text-[80px] font-bold leading-none select-none pointer-events-none opacity-[0.04]"
-                style={{ color: project.accent === "lime" ? "#C7EFCF" : project.accent }}
+                style={{ color: project.accent }}
               >
                 {project.number}
               </span>
@@ -136,14 +136,14 @@ export default function ProjectsPage() {
                   </span>
                   <div
                     className="w-2 h-2 rounded-full flex-shrink-0 mt-1"
-                    style={{ backgroundColor: project.accent === "lime" ? "#C7EFCF" : project.accent }}
+                    style={{ backgroundColor: project.accent }}
                   />
                 </div>
 
-                <h2 className="text-lime text-lg sm:text-xl font-medium mb-3 leading-tight">
+                <h2 className="text-ink text-lg sm:text-xl font-medium mb-3 leading-tight">
                   {project.title}
                 </h2>
-                <p className="text-gray-400 text-sm leading-relaxed flex-1">
+                <p className="text-muted text-sm leading-relaxed flex-1">
                   {project.description}
                 </p>
 
@@ -151,7 +151,7 @@ export default function ProjectsPage() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[10px] font-mono border border-white/10 rounded-full px-3 py-1 text-gray-500"
+                      className="text-[10px] font-mono border border-line rounded-full px-3 py-1 text-muted bg-surface-tinted"
                     >
                       {tag}
                     </span>
@@ -162,7 +162,7 @@ export default function ProjectsPage() {
               {/* Accent bar */}
               <div
                 className="absolute bottom-0 left-0 right-0 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-                style={{ backgroundColor: project.accent === "lime" ? "#C7EFCF" : project.accent }}
+                style={{ backgroundColor: project.accent }}
               />
             </motion.div>
           ))}
@@ -176,7 +176,7 @@ export default function ProjectsPage() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-24 flex flex-col items-center text-center gap-6"
         >
-          <p className="text-gray-500 text-sm max-w-md">
+          <p className="text-muted text-sm max-w-md">
             Working on something that needs to handle load?
           </p>
           <Link
@@ -184,8 +184,8 @@ export default function ProjectsPage() {
             className="group flex items-center gap-3 bg-primary rounded-full pl-8 pr-2 py-2 text-black font-medium text-sm sm:text-base transition-all hover:gap-4"
           >
             Start a Project
-            <div className="bg-black rounded-full w-10 h-10 flex items-center justify-center transition-transform group-hover:scale-110">
-              <ArrowRight className="text-lime w-5 h-5" />
+            <div className="bg-ink rounded-full w-10 h-10 flex items-center justify-center transition-transform group-hover:scale-110">
+              <ArrowRight className="text-white w-5 h-5" />
             </div>
           </Link>
         </motion.div>
