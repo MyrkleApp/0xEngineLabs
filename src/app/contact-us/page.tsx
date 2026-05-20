@@ -4,12 +4,13 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Send } from "lucide-react";
 import Link from "next/link";
+import { CONTACT_EMAIL, mailto } from "@/lib/contact";
 
 const budgetOptions = [
   "Under $5,000",
-  "$5,000 – $15,000",
-  "$15,000 – $50,000",
-  "$50,000 – $100,000",
+  "$5,000 - $15,000",
+  "$15,000 - $50,000",
+  "$50,000 - $100,000",
   "$100,000+",
   "Not sure yet",
 ];
@@ -31,19 +32,32 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(
-      `Project Enquiry${form.company ? ` — ${form.company}` : ""}`
-    );
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nCompany: ${form.company}\n\nProject Brief:\n${form.brief}\n\nBudget Range: ${form.budget}`
-    );
-    window.location.href = `mailto:team@0xenginelabs.org?subject=${subject}&body=${body}`;
+    const body = [
+      "0x Engine Labs Project Request",
+      "",
+      `Name: ${form.name}`,
+      `Company: ${form.company || "Not provided"}`,
+      `Budget Range: ${form.budget || "Not selected"}`,
+      "",
+      "Project Brief / Blockchain Context:",
+      form.brief,
+      "",
+      "Key areas to review:",
+      "- Blockchain systems or protocol infrastructure",
+      "- Backend/API layers",
+      "- Transaction workflows, indexing, or automation",
+      "- Reliability, security, and production constraints",
+    ].join("\n");
+
+    window.location.href = mailto({
+      subject: `Project Enquiry${form.company ? ` - ${form.company}` : ""}`,
+      body,
+    });
     setSubmitted(true);
   };
 
   return (
     <main className="min-h-screen bg-background px-4 md:px-6 pb-24">
-      {/* Top nav */}
       <nav className="sticky top-0 z-10 flex items-center justify-between py-4 bg-background/85 backdrop-blur-md border-b border-line">
         <Link
           href="/"
@@ -52,61 +66,55 @@ export default function ContactPage() {
           <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
           Back to Home
         </Link>
-        <span className="text-ink font-mono text-[10px] uppercase tracking-widest">
+        <span className="text-ink font-mono text-sm uppercase tracking-widest">
           0x Engine Labs
         </span>
-        <div className="w-20" /> {/* Spacer for centering */}
+        <div className="w-20" />
       </nav>
 
       <div className="max-w-7xl mx-auto pt-20 md:pt-28">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-
-          {/* Left — Brand copy */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="lg:sticky lg:top-28"
           >
-            <span className="text-primary text-[10px] sm:text-xs uppercase tracking-widest font-medium block mb-8">
+            <span className="text-primary text-sm uppercase tracking-widest font-medium block mb-8">
               Contact
             </span>
 
             <h1
               className="text-ink font-medium leading-[1.05] mb-8"
-              style={{ fontSize: "clamp(28px, 4vw, 56px)" }}
+              style={{ fontSize: "clamp(32px, 4vw, 56px)" }}
             >
-              Let&apos;s build something that doesn&apos;t break.
+              Let&apos;s build blockchain systems that don&apos;t break.
             </h1>
 
-            <p
-              className="font-medium leading-relaxed mb-10"
-              style={{ color: "#008F82", fontSize: "clamp(14px, 1.2vw, 18px)" }}
-            >
-              We design, build, and harden backend systems for companies operating under real-world constraints. If your system needs to handle load — let&apos;s talk.
+            <p className="font-medium leading-relaxed mb-10 text-base md:text-lg text-secondary">
+              We design, build, and harden blockchain products, protocol infrastructure, backend systems, and automation pipelines for teams operating under real-world load and security constraints.
             </p>
 
-            {/* Info blocks */}
             <div className="flex flex-col gap-6 border-t border-line pt-8">
               <div>
-                <span className="text-muted font-mono text-[10px] uppercase tracking-widest block mb-2">
+                <span className="text-muted font-mono text-sm uppercase tracking-widest block mb-2">
                   Direct line
                 </span>
                 <a
-                  href="mailto:team@0xenginelabs.org"
-                  className="text-ink text-sm sm:text-base hover:text-primary transition-colors"
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="text-ink text-base hover:text-primary transition-colors"
                 >
-                  team@0xenginelabs.org
+                  {CONTACT_EMAIL}
                 </a>
               </div>
               <div>
-                <span className="text-muted font-mono text-[10px] uppercase tracking-widest block mb-2">
+                <span className="text-muted font-mono text-sm uppercase tracking-widest block mb-2">
                   Response time
                 </span>
-                <p className="text-muted text-sm">Within 48 hours. No sales calls.</p>
+                <p className="text-muted text-base">Within 48 hours. No sales calls.</p>
               </div>
               <div>
-                <span className="text-muted font-mono text-[10px] uppercase tracking-widest block mb-2">
+                <span className="text-muted font-mono text-sm uppercase tracking-widest block mb-2">
                   Current availability
                 </span>
                 <p className="text-secondary text-sm font-mono">
@@ -116,20 +124,19 @@ export default function ContactPage() {
             </div>
           </motion.div>
 
-          {/* Right — Form */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
             {submitted ? (
-              <div className="bg-surface border border-line rounded-2xl p-10 flex flex-col items-center justify-center text-center gap-6 min-h-[400px] shadow-[0_18px_60px_rgba(2,255,228,0.14)]">
+              <div className="bg-surface border border-line rounded-2xl p-10 flex flex-col items-center justify-center text-center gap-6 min-h-[400px] shadow-[0_18px_60px_rgba(2,255,228,0.12)]">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
                   <Send className="w-5 h-5 text-primary" />
                 </div>
-                <h2 className="text-ink text-2xl font-medium">Enquiry sent.</h2>
-                <p className="text-muted text-sm max-w-sm">
-                  Your email client should have opened with a pre-filled message. We&apos;ll get back to you within 48 hours.
+                <h2 className="text-ink text-2xl font-medium">Request received.</h2>
+                <p className="text-muted text-base max-w-sm">
+                  Thank you for choosing to work with 0x Engine Labs. Your email client has opened with the project brief; we&apos;ll review it and respond within 48 hours.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -141,11 +148,10 @@ export default function ContactPage() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="bg-surface border border-line rounded-2xl p-8 md:p-10 flex flex-col gap-6 shadow-[0_18px_60px_rgba(2,255,228,0.14)]"
+                className="bg-surface border border-line rounded-2xl p-8 md:p-10 flex flex-col gap-6 shadow-[0_18px_60px_rgba(2,255,228,0.12)]"
               >
-                {/* Name */}
                 <div className="flex flex-col gap-2">
-                  <label className="text-muted font-mono text-[10px] uppercase tracking-widest">
+                  <label className="text-muted font-mono text-sm uppercase tracking-widest">
                     Name *
                   </label>
                   <input
@@ -155,13 +161,12 @@ export default function ContactPage() {
                     value={form.name}
                     onChange={handleChange}
                     placeholder="Your full name"
-                    className="bg-surface-tinted border border-line rounded-xl px-4 py-3 text-ink text-sm placeholder-muted/60 focus:outline-none focus:border-primary transition-colors"
+                    className="bg-surface-tinted border border-line rounded-xl px-4 py-3 text-ink text-base placeholder-muted/60 focus:outline-none focus:border-primary transition-colors"
                   />
                 </div>
 
-                {/* Company */}
                 <div className="flex flex-col gap-2">
-                  <label className="text-muted font-mono text-[10px] uppercase tracking-widest">
+                  <label className="text-muted font-mono text-sm uppercase tracking-widest">
                     Company
                   </label>
                   <input
@@ -169,14 +174,13 @@ export default function ContactPage() {
                     name="company"
                     value={form.company}
                     onChange={handleChange}
-                    placeholder="Company or product name"
-                    className="bg-surface-tinted border border-line rounded-xl px-4 py-3 text-ink text-sm placeholder-muted/60 focus:outline-none focus:border-primary transition-colors"
+                    placeholder="Company, protocol, or product name"
+                    className="bg-surface-tinted border border-line rounded-xl px-4 py-3 text-ink text-base placeholder-muted/60 focus:outline-none focus:border-primary transition-colors"
                   />
                 </div>
 
-                {/* Project brief */}
                 <div className="flex flex-col gap-2">
-                  <label className="text-muted font-mono text-[10px] uppercase tracking-widest">
+                  <label className="text-muted font-mono text-sm uppercase tracking-widest">
                     Project Brief *
                   </label>
                   <textarea
@@ -184,38 +188,36 @@ export default function ContactPage() {
                     required
                     value={form.brief}
                     onChange={handleChange}
-                    placeholder="Describe your system, what's failing, and what you need built."
+                    placeholder="Describe the blockchain product, protocol infrastructure, backend system, automation pipeline, or reliability issue you need built or hardened."
                     rows={5}
-                    className="bg-surface-tinted border border-line rounded-xl px-4 py-3 text-ink text-sm placeholder-muted/60 focus:outline-none focus:border-primary transition-colors resize-none leading-relaxed"
+                    className="bg-surface-tinted border border-line rounded-xl px-4 py-3 text-ink text-base placeholder-muted/60 focus:outline-none focus:border-primary transition-colors resize-none leading-relaxed"
                   />
                 </div>
 
-                {/* Budget */}
                 <div className="flex flex-col gap-2">
-                  <label className="text-muted font-mono text-[10px] uppercase tracking-widest">
+                  <label className="text-muted font-mono text-sm uppercase tracking-widest">
                     Budget Range
                   </label>
                   <select
                     name="budget"
                     value={form.budget}
                     onChange={handleChange}
-                    className="bg-surface-tinted border border-line rounded-xl px-4 py-3 text-ink text-sm focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer"
+                    className="bg-surface-tinted border border-line rounded-xl px-4 py-3 text-ink text-base focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer"
                   >
                     <option value="" className="text-muted">
                       Select a range
                     </option>
                     {budgetOptions.map((opt) => (
-                      <option key={opt} value={opt} className="bg-[#F4FFFC]">
+                      <option key={opt} value={opt} className="bg-background">
                         {opt}
                       </option>
                     ))}
                   </select>
                 </div>
 
-                {/* Submit */}
                 <button
                   type="submit"
-                  className="group flex items-center justify-between gap-3 bg-primary rounded-xl px-6 py-4 text-black font-medium text-sm transition-all hover:bg-primary/90 mt-2"
+                  className="group flex items-center justify-between gap-3 bg-primary rounded-xl px-6 py-4 text-black font-medium text-base transition-all hover:bg-primary/90 mt-2"
                 >
                   Send Enquiry
                   <div className="bg-ink rounded-full w-8 h-8 flex items-center justify-center transition-transform group-hover:scale-110 group-hover:translate-x-1">
@@ -223,7 +225,7 @@ export default function ContactPage() {
                   </div>
                 </button>
 
-                <p className="text-muted font-mono text-[9px] text-center">
+                <p className="text-muted font-mono text-sm text-center">
                   We respond within 48 hours. No sales calls.
                 </p>
               </form>

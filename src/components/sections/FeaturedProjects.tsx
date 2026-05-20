@@ -8,29 +8,29 @@ export const featuredProjects = [
   {
     id: "1",
     number: "01",
-    title: "High-Throughput Payment Gateway",
+    title: "On-Chain Payment Gateway",
     description:
-      "Rebuilt a legacy payment processing service to handle 40,000 concurrent requests. Reduced p99 latency from 3.2s to 180ms under peak load.",
-    tags: ["Go", "PostgreSQL", "Redis", "gRPC"],
+      "Built a transaction-aware payment service with wallet flows, reconciliation, and API reliability under peak load.",
+    tags: ["Go", "PostgreSQL", "Redis", "RPC"],
     accent: "#02FFE4",
     size: "large",
   },
   {
     id: "2",
     number: "02",
-    title: "Distributed Notification Engine",
+    title: "Protocol Event Engine",
     description:
-      "Designed and shipped a multi-channel notification pipeline handling 2M+ events/day with guaranteed delivery and structured failure handling.",
-    tags: ["Kafka", "Node.js", "MongoDB"],
+      "Designed and shipped an event pipeline for chain activity, product triggers, and guaranteed delivery across downstream services.",
+    tags: ["Kafka", "Node.js", "Indexing"],
     accent: "#008F82",
     size: "small",
   },
   {
     id: "3",
     number: "03",
-    title: "Infrastructure Rearchitecture",
+    title: "Blockchain Infrastructure Rearchitecture",
     description:
-      "Migrated a monolithic e-commerce backend into 7 independently deployable services. Zero downtime migration, zero regression events post-launch.",
+      "Migrated a fragile product backend into independently deployable services with stable RPC, worker, and data layers.",
     tags: ["K8s", "Terraform", "AWS", "Python"],
     accent: "#CCFFF8",
     size: "small",
@@ -56,7 +56,7 @@ export function FeaturedProjects() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
           <div>
-            <span className="text-primary text-[10px] sm:text-xs uppercase tracking-widest font-medium block mb-4">
+            <span className="text-primary text-sm uppercase tracking-widest font-medium block mb-4">
               Work
             </span>
             <h2 className="text-ink text-2xl sm:text-3xl md:text-4xl font-medium">
@@ -74,7 +74,7 @@ export function FeaturedProjects() {
 
         {/* Asymmetric grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
-          {/* Large card — spans 5 cols */}
+          {/* Large card */}
           <motion.div
             variants={cardVariants}
             initial="hidden"
@@ -100,13 +100,13 @@ export function FeaturedProjects() {
             </span>
 
             <div className="relative z-10">
-              <span className="text-primary text-[10px] uppercase tracking-widest font-medium block mb-6">
-                {featuredProjects[0].number} — PROJECT
+              <span className="text-primary text-sm uppercase tracking-widest font-medium block mb-6">
+                {featuredProjects[0].number} - PROJECT
               </span>
               <h3 className="text-ink text-xl sm:text-2xl md:text-3xl font-medium mb-4 leading-tight">
                 {featuredProjects[0].title}
               </h3>
-              <p className="text-muted text-sm leading-relaxed">
+              <p className="text-muted text-base leading-relaxed">
                 {featuredProjects[0].description}
               </p>
             </div>
@@ -115,7 +115,7 @@ export function FeaturedProjects() {
               {featuredProjects[0].tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[10px] font-mono border border-line rounded-full px-3 py-1 text-muted bg-surface-tinted"
+                  className="text-sm font-mono border border-line rounded-full px-3 py-1 text-muted bg-surface-tinted"
                 >
                   {tag}
                 </span>
@@ -129,7 +129,7 @@ export function FeaturedProjects() {
             />
           </motion.div>
 
-          {/* Right side — two stacked cards spanning 7 cols */}
+          {/* Right side */}
           <div className="md:col-span-7 flex flex-col gap-3">
             {featuredProjects.slice(1).map((project, i) => (
               <motion.div
@@ -151,13 +151,13 @@ export function FeaturedProjects() {
                 />
 
                 <div className="relative z-10 flex-1">
-                  <span className="text-primary text-[10px] uppercase tracking-widest font-medium block mb-3">
-                    {project.number} — PROJECT
+                  <span className="text-primary text-sm uppercase tracking-widest font-medium block mb-3">
+                    {project.number} - PROJECT
                   </span>
                   <h3 className="text-ink text-lg sm:text-xl font-medium mb-3 leading-tight">
                     {project.title}
                   </h3>
-                  <p className="text-muted text-sm leading-relaxed">
+                  <p className="text-muted text-base leading-relaxed">
                     {project.description}
                   </p>
                 </div>
@@ -166,7 +166,7 @@ export function FeaturedProjects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[10px] font-mono border border-line rounded-full px-3 py-1 text-muted bg-surface-tinted"
+                      className="text-sm font-mono border border-line rounded-full px-3 py-1 text-muted bg-surface-tinted"
                     >
                       {tag}
                     </span>
@@ -187,7 +187,7 @@ export function FeaturedProjects() {
         <div className="mt-10 flex justify-center">
           <Link
             href="/projects"
-            className="group flex items-center gap-3 border border-line rounded-full px-8 py-3 text-muted text-sm font-medium transition-all hover:border-primary hover:text-primary bg-white/50"
+            className="group flex items-center gap-3 border border-line rounded-full px-8 py-3 text-muted text-sm font-medium transition-all hover:border-primary hover:text-primary bg-surface/70"
           >
             View all projects
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

@@ -8,7 +8,7 @@ export function SystemPositioning() {
     <section className="bg-background py-24 md:py-32 px-4 md:px-6 w-full flex justify-center">
       <div className="bg-surface border border-line rounded-3xl p-8 md:p-16 lg:p-24 max-w-6xl w-full flex flex-col items-center text-center gap-12 shadow-[0_24px_80px_rgba(2,255,228,0.14)]">
         {/* Label */}
-        <span className="text-primary text-[10px] sm:text-xs uppercase tracking-widest font-medium">
+        <span className="text-primary text-sm uppercase tracking-widest font-medium">
           Engine Labs
         </span>
 
@@ -17,7 +17,7 @@ export function SystemPositioning() {
           <WordsPullUpMultiStyle
             segments={[
               { text: "We engineer systems, ", className: "font-normal" },
-              { text: "built for scale and reliability. ", className: "italic font-serif" },
+              { text: "built for blockchain reliability. ", className: "italic font-serif" },
               { text: "designed to operate under real-world constraints.", className: "font-normal" }
             ]}
           />
@@ -26,8 +26,8 @@ export function SystemPositioning() {
         {/* Body Text (Animated on Scroll) */}
         <div className="max-w-2xl mx-auto">
           <ScrollText
-            text="We design and deliver high-performance backend systems, infrastructure layers, and automation pipelines. Every component is built to handle load, reduce latency, and maintain stability under real operating conditions. The focus is predictable behavior in production, not controlled environments."
-            className="text-primary text-xs sm:text-sm md:text-base leading-relaxed"
+            text="We design and deliver blockchain products, protocol infrastructure, backend systems, and automation pipelines. Every component is built to handle load, reduce latency, protect transaction workflows, and maintain stability under real operating conditions. The focus is predictable behavior in production, not controlled environments."
+            className="text-primary text-base leading-relaxed"
           />
         </div>
       </div>

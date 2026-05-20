@@ -17,7 +17,7 @@ const brands: Brand[] = [
   {
     name: "Ferrous",
     url: "https://ferrous.app",
-    tagline: "Forwarded systems interface",
+    tagline: "Global market access",
     accent: "#02FFE4",
     mark: (
       <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#061F1D] text-2xl font-bold text-[#02FFE4]">
@@ -77,7 +77,7 @@ const brands: Brand[] = [
   {
     name: "Myrkle",
     url: "https://myrkle.app",
-    tagline: "Fintech infrastructure",
+    tagline: "Web3 access hub",
     accent: "#00FF41",
     mark: (
       <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#061F1D] text-3xl font-black text-[#00FF41]">
@@ -121,13 +121,13 @@ function BrandCard({ brand, index }: { brand: Brand; index: number }) {
 
       <div className="relative z-10 flex items-start justify-between gap-6">
         <div>
-          <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted">
+          <p className="mb-3 font-mono text-sm uppercase tracking-widest text-muted">
             Client
           </p>
           <h3 className="text-3xl font-semibold tracking-tight text-ink">
             {brand.name}
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted">{brand.tagline}</p>
+          <p className="mt-2 text-base leading-relaxed text-muted">{brand.tagline}</p>
         </div>
         {brand.mark}
       </div>
@@ -137,7 +137,7 @@ function BrandCard({ brand, index }: { brand: Brand; index: number }) {
       </div>
 
       <div className="relative z-10 flex items-center justify-between border-t border-line pt-5">
-        <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
+        <span className="font-mono text-sm uppercase tracking-widest text-muted">
           {new URL(brand.url).hostname}
         </span>
         <span
@@ -155,7 +155,7 @@ export function BrandsMarquee() {
   return (
     <section className="bg-[#E8F7F3] py-24 md:py-32 w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6 mb-14">
-        <span className="text-primary text-[10px] sm:text-xs uppercase tracking-widest font-medium block mb-4">
+        <span className="text-primary text-sm uppercase tracking-widest font-medium block mb-4">
           Brands
         </span>
         <div className="text-2xl sm:text-3xl md:text-4xl font-medium">
@@ -166,7 +166,7 @@ export function BrandsMarquee() {
         </div>
       </div>
 
-      <div className="w-full overflow-x-auto scroll-px-4 snap-x snap-mandatory px-4 pb-4 md:px-6">
+      <div className="w-full overflow-x-auto scrollbar-none scroll-px-4 snap-x snap-mandatory px-4 pb-4 md:px-6">
         <div className="mx-auto flex max-w-7xl gap-4 md:gap-6">
           {brands.map((brand, index) => (
             <BrandCard key={brand.name} brand={brand} index={index} />

@@ -6,39 +6,39 @@ import { motion } from "framer-motion";
 const domains = [
   {
     number: "01",
-    title: "Software Engineering",
-    body: "High-performance backend systems designed for reliability and long-term maintainability. Built for production, not the demo.",
+    title: "Blockchain Systems",
+    body: "Protocol-aware products, wallet flows, transaction services, and backend systems designed for production reliability.",
     checklist: [
-      "Performance-first system architecture",
-      "Reliability by design, not by patch",
-      "Long-term maintainability baked in",
+      "Transaction-aware system architecture",
+      "Indexer, API, and event pipeline design",
+      "Smart contract integration with operational guardrails",
       "Full lifecycle ownership from spec to deployment",
     ],
   },
   {
     number: "02",
-    title: "Systems Architecture",
-    body: "Designing scalable, modular systems that handle real-world constraints from day one.",
+    title: "Protocol Infrastructure",
+    body: "Scalable infrastructure for on-chain and off-chain workloads that need predictable behavior under load.",
     checklist: [
-      "Modular service design",
-      "Horizontal and vertical scalability paths",
-      "Fault isolation by default",
+      "Modular service and worker design",
+      "RPC, queue, and database scaling paths",
+      "Fault isolation across protocol boundaries",
     ],
   },
   {
     number: "03",
-    title: "Digital Transformation",
-    body: "Reworking legacy systems into modern, efficient architectures without operational disruption.",
+    title: "Backend Modernization",
+    body: "Reworking fragile product backends into modern infrastructure that can support blockchain integrations without disruption.",
     checklist: [
       "Legacy system assessment and mapping",
       "Phased migration without downtime",
-      "Modern architecture, existing team continuity",
+      "Modern architecture with chain-aware interfaces",
     ],
   },
   {
     number: "04",
     title: "Process Automation",
-    body: "Eliminating operational inefficiencies through structured, monitorable automation systems.",
+    body: "Eliminating operational inefficiencies through structured, monitorable automation for deployments, data flows, and blockchain operations.",
     checklist: [
       "Workflow mapping and bottleneck identification",
       "Structured pipeline architecture",
@@ -60,7 +60,7 @@ function DomainRow({ domain, index }: { domain: (typeof domains)[0]; index: numb
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.55, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
       className="group relative grid grid-cols-12 gap-x-8 gap-y-4 py-10 md:py-12 cursor-default transition-colors duration-300"
-      style={{ borderTop: "0.5px solid #C8E2DD" }}
+      style={{ borderTop: "0.5px solid #BFD8D3" }}
     >
       {/* Hover background wash */}
       <motion.div
@@ -73,7 +73,7 @@ function DomainRow({ domain, index }: { domain: (typeof domains)[0]; index: numb
       {/* Number */}
       <div className="col-span-12 sm:col-span-1 flex items-start pt-1">
         <span
-          className="font-mono text-[10px] uppercase tracking-widest transition-colors duration-300"
+          className="font-mono text-sm uppercase tracking-widest transition-colors duration-300"
           style={{ color: hovered ? "#008F82" : "rgba(8,23,22,0.35)" }}
         >
           {domain.number}
@@ -91,7 +91,7 @@ function DomainRow({ domain, index }: { domain: (typeof domains)[0]; index: numb
         >
           {domain.title}
         </h3>
-        <p className="text-muted text-sm leading-relaxed max-w-xs">
+        <p className="text-muted text-base leading-relaxed max-w-xs">
           {domain.body}
         </p>
       </div>
@@ -110,7 +110,7 @@ function DomainRow({ domain, index }: { domain: (typeof domains)[0]; index: numb
               style={{ backgroundColor: hovered ? "#02FFE4" : "rgba(8,23,22,0.2)" }}
             />
             <span
-              className="text-sm leading-snug transition-colors duration-300"
+              className="text-base leading-snug transition-colors duration-300"
               style={{ color: hovered ? "#081716" : "rgba(8,23,22,0.58)" }}
             >
               {item}
@@ -126,7 +126,7 @@ function DomainRow({ domain, index }: { domain: (typeof domains)[0]; index: numb
           transition={{ duration: 0.25 }}
           className="text-primary text-sm"
         >
-          ↗
+          -&gt;
         </motion.span>
       </div>
     </motion.div>
@@ -140,7 +140,7 @@ export function Capabilities() {
 
         {/* Header */}
         <div className="mb-16 md:mb-20">
-          <span className="text-primary text-[10px] sm:text-xs uppercase tracking-widest font-medium block mb-5">
+          <span className="text-primary text-sm uppercase tracking-widest font-medium block mb-5">
             Capabilities
           </span>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 max-w-4xl">
@@ -152,7 +152,7 @@ export function Capabilities() {
                 No overlap. No generalism.
               </h2>
             </div>
-            <p className="text-muted font-mono text-xs sm:text-sm max-w-xs flex-shrink-0 pb-1">
+            <p className="text-muted font-mono text-sm max-w-xs flex-shrink-0 pb-1">
               Every engagement lives inside one of these.<br />We do not stretch scope.
             </p>
           </div>
@@ -164,7 +164,7 @@ export function Capabilities() {
             <DomainRow key={domain.number} domain={domain} index={i} />
           ))}
           {/* Bottom hairline */}
-          <div style={{ borderTop: "0.5px solid #C8E2DD" }} />
+          <div style={{ borderTop: "0.5px solid #BFD8D3" }} />
         </div>
 
       </div>
