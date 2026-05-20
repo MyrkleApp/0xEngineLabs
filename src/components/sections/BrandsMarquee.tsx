@@ -99,17 +99,24 @@ const brands: Brand[] = [
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-function BrandCard({ brand, index }: { brand: Brand; index: number }) {
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
+};
+
+function BrandCard({ brand }: { brand: Brand }) {
   return (
     <motion.a
       href={brand.url}
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
+      variants={cardVariants}
       whileHover={{ y: -8 }}
-      transition={{ duration: 0.55, delay: index * 0.08, ease: EASE }}
       className="group relative flex h-90 w-[78vw] scrollbar-none shrink-0 snap-start flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-6 shadow-[0_18px_60px_rgba(2,255,228,0.14)] transition-colors hover:border-primary/70 sm:w-[360px] lg:w-[420px]"
     >
       <div
@@ -167,11 +174,17 @@ export function BrandsMarquee() {
       </div>
 
       <div className="w-full overflow-x-auto scrollbar-none scroll-px-4 snap-x snap-mandatory px-4 pb-4 md:px-6">
-        <div className="mx-auto flex max-w-7xl gap-4 md:gap-6">
-          {brands.map((brand, index) => (
-            <BrandCard key={brand.name} brand={brand} index={index} />
+        <motion.div
+          className="mx-auto flex max-w-7xl gap-4 md:gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
+          {brands.map((brand) => (
+            <BrandCard key={brand.name} brand={brand} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
