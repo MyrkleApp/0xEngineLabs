@@ -1,20 +1,24 @@
-import Footer from "@/components/footer";
-import ClientSection from "@/components/sections/client-section";
-import HeroSection from "@/components/sections/hero-section";
-import IceBergSection from "@/components/sections/ice-berg-section";
-import TestimonialSection from "@/components/sections/testimonial-section";
-import Container from "@/components/ui/container";
+import { Hero } from "@/components/sections/Hero";
+import { Capabilities } from "@/components/sections/Capabilities";
+import { SystemPositioning } from "@/components/sections/SystemPositioning";
+import { ProofSystem } from "@/components/sections/ProofSystem";
+import { BrandsMarquee } from "@/components/sections/BrandsMarquee";
+import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
+import { Process, Principles } from "@/components/sections/ProcessPrinciples";
+import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <>
-      <HeroSection />
-      <ClientSection />
-      <IceBergSection />
-      <TestimonialSection />
-      <Container color="black">
-        <Footer />
-      </Container>
-    </>
+    <main className="flex flex-col items-center justify-between w-full overflow-x-clip">
+      <Hero />
+      <Capabilities />
+      <SystemPositioning />
+      <ProofSystem />
+      <BrandsMarquee />
+      <FeaturedProjects />
+      <Process />
+      <Principles />
+      <Footer />
+    </main>
   );
 }
